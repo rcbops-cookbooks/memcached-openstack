@@ -1,68 +1,88 @@
-memcached-openstack Cookbook
-============================
-TODO: Enter the cookbook description here.
+Support
+=======
 
-e.g.
-This cookbook makes your favorite breakfast sandwhich.
+Issues have been disabled for this repository.  
+Any issues with this cookbook should be raised here:
+
+[https://github.com/rcbops/chef-cookbooks/issues](https://github.com/rcbops/chef-cookbooks/issues)
+
+Please title the issue as follows:
+
+[memcached-openstack]: \<short description of problem\>
+
+In the issue description, please include a longer description of the issue, along with any relevant log/command/error output.  
+If logfiles are extremely long, please place the relevant portion into the issue description, and link to a gist containing the entire logfile
+
+Description
+===========
+
+This is a simple wrapper cookbook for memcached.
 
 Requirements
-------------
-TODO: List your cookbook requirements. Be sure to include any requirements this cookbook has on platforms, libraries, other cookbooks, packages, operating systems, etc.
+============
 
-e.g.
-#### packages
-- `toaster` - memcached-openstack needs toaster to brown your bagel.
+Chef 0.10.0 or higher required (for Chef environment use).
+
+Platforms
+--------
+
+* CentOS >= 6.3
+* Ubuntu >= 12.04
+
+Cookbooks
+---------
+
+The following cookbooks are dependencies:
+
+* [memcached](https://github.com/opscode-cookbooks/memcached)
+* [osops-utils](https://github.com/rcbops-cookbooks/osops-utils)
+
+Resources/Providers
+===================
+
+None
+
+Recipes
+=======
+
+default
+----
+- Includes recipe `memcached::default`
 
 Attributes
-----------
-TODO: List you cookbook attributes here.
+==========
 
-e.g.
-#### memcached-openstack::default
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['memcached-openstack']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
-  </tr>
-</table>
+* `memcached["services"]["cache"]["port"]` = memcached connection port
+* `memcached["services"]["cache"]["network"]` = `osops_networks` network name which service operates on
 
-Usage
------
-#### memcached-openstack::default
-TODO: Write usage instructions for each cookbook.
+Templates
+=========
 
-e.g.
-Just include `memcached-openstack` in your node's `run_list`:
+None
 
-```json
-{
-  "name":"my_node",
-  "run_list": [
-    "recipe[memcached-openstack]"
-  ]
-}
-```
+License and Author
+==================
 
-Contributing
-------------
-TODO: (optional) If this is a public cookbook, detail the process for contributing. If this is a private cookbook, remove this section.
+Author:: Justin Shepherd (<justin.shepherd@rackspace.com>)  
+Author:: Jason Cannavale (<jason.cannavale@rackspace.com>)  
+Author:: Ron Pedde (<ron.pedde@rackspace.com>)  
+Author:: Joseph Breu (<joseph.breu@rackspace.com>)  
+Author:: William Kelly (<william.kelly@rackspace.com>)  
+Author:: Darren Birkett (<darren.birkett@rackspace.co.uk>)  
+Author:: Evan Callicoat (<evan.callicoat@rackspace.com>)  
+Author:: Matt Thompson (<matt.thompson@rackspace.co.uk>)  
+Author:: Andy McCrae (<andrew.mccrae@rackspace.co.uk>)  
 
-e.g.
-1. Fork the repository on Github
-2. Create a named feature branch (like `add_component_x`)
-3. Write you change
-4. Write tests for your change (if applicable)
-5. Run the tests, ensuring they all pass
-6. Submit a Pull Request using Github
+Copyright 2012, Rackspace US, Inc.  
 
-License and Authors
--------------------
-Authors: TODO: List authors
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
