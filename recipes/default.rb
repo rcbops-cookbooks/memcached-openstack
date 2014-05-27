@@ -21,3 +21,8 @@ node.set["memcached"]["listen"] = get_ip_for_net(node["memcached"]["services"]["
 node.set["memcached"]["port"] = node["memcached"]["services"]["cache"]["port"]
 
 include_recipe "memcached"
+
+service 'memcached' do
+  action [:enable, :start]
+  supports :status => true, :start => true, :stop => true, :restart => true, :enable => true
+end
